@@ -25,14 +25,26 @@ config :crawly,
    }
   ],
   pipelines: [
-   {
-     Crawly.Pipelines.Validate, fields: [:url, :title]
-   },
-   {
-     Crawly.Pipelines.DuplicatesFilter, item_id: :url
-   },
+   {Crawly.Pipelines.Validate, fields: [:url, :title]},
+   {Crawly.Pipelines.DuplicatesFilter, item_id: :url},
    Crawly.Pipelines.JSONEncoder,
-   {
-     Crawly.Pipelines.WriteToFile, extension: "json", folder: "/tmp"
-   }
+   {Crawly.Pipelines.WriteToFile, extension: "json", folder: "/tmp"}
   ]
+
+# Configures the endpoint
+config :dashboard, DashboardWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "9p4l7qsobg6hzvNiVfxqvxrEe74PByPjADasqBLqO9Lig5Ffqp36lHLJr6id96dK",
+  render_errors: [view: DashboardWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Dashboard.PubSub,
+  live_view: [signing_salt: "9s9ANrvf"]
+
+# Configures Elixir's Logger
+config :logger, :console,
+  format: "$time $metadata[$level] $message\n",
+  metadata: [:request_id]
+
+# Use Poison for JSON parsing in Phoenix
+config :phoenix, :json_library, Poison
+
+import_config "#{Mix.env()}.exs"
