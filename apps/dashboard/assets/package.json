@@ -30,6 +30,7 @@
     "postcss-loader": "4.2.0",
     "bootstrap": "5.0.0-beta2",
     "@popperjs/core": "^2.6.0",
-    "autoprefixer": "9.5.1"
+    "autoprefixer": "9.5.1",
+    "bootstrap-material-design": "^4.1.3"
   }
 }

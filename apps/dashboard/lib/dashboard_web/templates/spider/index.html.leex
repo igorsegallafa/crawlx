@@ -1,0 +1,11 @@
+<%= form_for :spider, Routes.spider_path(@socket, :index), [as: :spider, phx_submit: :run_spider], fn _f -> %>
+<div class="row mt-3">
+    <div class="col">
+        <label for="spider-name" class="visually-hidden">Spider Module Name</label>
+        <input name="spider_name" type="text" class="form-control" id="spider-name" placeholder="Spider Module Name (e.g. Kabum)">
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-primary mb-3">Run</button>
+    </div>
+</div>
+<% end %>

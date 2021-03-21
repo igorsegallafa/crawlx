@@ -18,6 +18,13 @@ defmodule DashboardWeb.SpiderLive do
     {:noreply, socket}
   end
 
+  def handle_event("run_spider", params, socket) do
+    response = HTTPoison.get!("http://localhost:4001/spiders/#{params["spider_name"]}/schedule")
+    response |> IO.inspect()
+
+    {:noreply, socket}
+  end
+
   defp send_update_event(true), do: Process.send_after(self(), :update, @interval_update)
   defp send_update_event(_), do: nil
 end
