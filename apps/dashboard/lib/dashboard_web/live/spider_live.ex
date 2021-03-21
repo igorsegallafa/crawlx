@@ -41,7 +41,7 @@ defmodule DashboardWeb.SpiderLive do
   defp send_update_event(_), do: nil
 
   defp update(socket) do
-    spiders_stats = get_spiders_stats
+    spiders_stats = get_spiders_stats()
 
     socket
     |> assign(spiders_stats: spiders_stats)
