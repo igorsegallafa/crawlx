@@ -5,7 +5,43 @@
         <input name="spider_name" type="text" class="form-control" id="spider-name" placeholder="Spider Module Name (e.g. Kabum)">
     </div>
     <div class="col">
-        <button type="submit" class="btn btn-primary mb-3">Run</button>
+        <button type="submit" class="btn btn-primary mb-3" phx-disable-with="Running...">Run</button>
     </div>
 </div>
 <% end %>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= for {spider_name, response} <- @spiders_stats do %>
+            <tr>
+                <% is_running = response != "Spider is not running" %>
+                <td><%= "Crawler.Spider.#{spider_name}" %></td>
+                <td>
+                    <%= if is_running do %>
+                    <span class="badge bg-success">Running</span>
+                    <% else %>
+                    <span class="badge bg-danger">Not Running</span>
+                    <% end %>
+                </td>
+                <td>
+                    <%= if is_running do %>
+                    <button phx-click="stop_spider" phx-value-spider_name="<%= spider_name %>" type="button" class="btn btn-sm btn-outline-danger">Stop</button>
+                    <% else %>
+                    <button phx-click="run_spider" phx-value-spider_name="<%= spider_name %>" type="button" class="btn btn-sm btn-outline-success">Run</button>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
