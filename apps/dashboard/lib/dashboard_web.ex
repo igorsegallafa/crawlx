@@ -29,6 +29,8 @@ defmodule DashboardWeb do
       use Phoenix.LiveView,
         layout: {DashboardWeb.LayoutView, "live.html"}
 
+      def handle_params(_unsigned_params, uri, socket), do: {:noreply, assign(socket, uri: URI.parse(uri))}
+
       unquote(view_helpers())
     end
   end

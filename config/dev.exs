@@ -10,8 +10,7 @@ config :dashboard, DashboardWeb.Endpoint,
       "node_modules/webpack/bin/webpack.js",
       "--mode",
       "development",
-      "--watch-stdin",
-      cd: Path.expand("apps/dashboard/assets", __DIR__)
+      cd: Path.expand("../apps/dashboard/assets", __DIR__)
     ]
   ]
 
