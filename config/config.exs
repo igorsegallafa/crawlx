@@ -3,7 +3,7 @@ import Config
 config :crawly,
   closespider_timeout: 10,
   concurrent_requests_per_domain: 8,
-  fetcher: {Crawly.Fetchers.Splash, [base_url: "http://localhost:8050/render.html"]},
+#  fetcher: {Crawly.Fetchers.Splash, [base_url: "http://localhost:8050/render.html"]},
   middlewares: [
    Crawly.Middlewares.DomainFilter,
    Crawly.Middlewares.UniqueRequest,
