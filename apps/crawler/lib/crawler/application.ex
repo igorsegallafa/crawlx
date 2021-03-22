@@ -3,7 +3,8 @@ defmodule Crawler.Application do
 
   def start(_type, _args) do
     children = [
-      {Cachex, name: :crawlx}
+      {Cachex, name: :crawlx},
+      Crawler.Scheduler,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -48,5 +48,11 @@
     <orderEntry type="library" name="x509" level="project" />
     <orderEntry type="library" name="mime" level="project" />
     <orderEntry type="library" name="plug_crypto" level="project" />
+    <orderEntry type="library" name="quantum" level="project" />
+    <orderEntry type="library" name="crontab" level="project" />
+    <orderEntry type="library" name="gen_stage" level="project" />
+    <orderEntry type="library" name="tzdata" level="project" />
+    <orderEntry type="library" name="ecto" level="project" />
+    <orderEntry type="library" name="inch_ex" level="project" />
   </component>
 </module>

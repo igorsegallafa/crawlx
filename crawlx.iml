@@ -56,6 +56,9 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/eternal" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/jumper" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/unsafe" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/crontab" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/quantum" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gen_stage" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="cachex" level="project" />

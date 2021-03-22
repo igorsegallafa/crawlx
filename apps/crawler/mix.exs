@@ -26,7 +26,8 @@ defmodule Crawler.MixProject do
     [
       {:json, "~> 1.4"},
       {:crawly, "~> 0.13.0"},
-      {:floki, "~> 0.30.0"}
+      {:floki, "~> 0.30.0"},
+      {:quantum, "~> 3.0"}
     ]
   end
 end
