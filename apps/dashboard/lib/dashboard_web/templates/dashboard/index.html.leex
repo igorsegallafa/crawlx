@@ -1,1 +1,25 @@
-daaee
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Spider</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= for {spider_name, items_list} <- @items do %>
+                <%= for {product_name, item} <- items_list do %>
+                <tr>
+                    <% out_of_stock? = item["price"] == "Out of Stock" %>
+                    <td><a href="<%= item["url"] %>"><%= product_name %></a></td>
+                    <td><%= spider_name %></td>
+                    <td><span class="badge <%= if out_of_stock?, do: "bg-danger", else: "bg-success"%>"><%= item["price"] %></span></td>
+                </tr>
+                <% end %>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

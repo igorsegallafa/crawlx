@@ -51,7 +51,23 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix_html" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix_live_view" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/jason" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/cachex" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/sleeplocks" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/eternal" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/jumper" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/unsafe" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="cachex" level="project" />
+    <orderEntry type="library" name="eternal" level="project" />
+    <orderEntry type="library" name="jumper" level="project" />
+    <orderEntry type="library" name="sleeplocks" level="project" />
+    <orderEntry type="library" name="unsafe" level="project" />
+    <orderEntry type="library" name="excoveralls" level="project" />
+    <orderEntry type="library" name="local_cluster" level="project" />
+    <orderEntry type="library" name="credo" level="project" />
+    <orderEntry type="library" name="benchee" level="project" />
+    <orderEntry type="library" name="benchee_html" level="project" />
+    <orderEntry type="library" name="ex_doc" level="project" />
   </component>
 </module>

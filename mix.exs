@@ -11,6 +11,8 @@ defmodule Crawlx.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:cachex, "~> 3.3"}
+    ]
   end
 end

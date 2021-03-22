@@ -25,10 +25,10 @@ config :crawly,
    }
   ],
   pipelines: [
-   {Crawly.Pipelines.Validate, fields: [:url, :title]},
-   {Crawly.Pipelines.DuplicatesFilter, item_id: :title},
-   Crawly.Pipelines.JSONEncoder,
-   {Crawly.Pipelines.WriteToFile, extension: "json", folder: "/tmp"}
+    {Crawly.Pipelines.Validate, fields: [:url, :title]},
+    {Crawly.Pipelines.DuplicatesFilter, item_id: :title},
+    Crawly.Pipelines.JSONEncoder,
+    Crawler.Pipeline.WriteToCache,
   ]
 
 # Configures the endpoint

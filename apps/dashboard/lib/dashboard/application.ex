@@ -1,8 +1,4 @@
 defmodule Dashboard.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
-
   use Application
 
   def start(_type, _args) do
@@ -11,8 +7,9 @@ defmodule Dashboard.Application do
       DashboardWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Dashboard.PubSub},
+      {Cachex, name: :crawlx_web},
       # Start the Endpoint (http/https)
-      DashboardWeb.Endpoint
+      DashboardWeb.Endpoint,
       # Start a worker by calling: Dashboard.Worker.start_link(arg)
       # {Dashboard.Worker, arg}
     ]
