@@ -7,6 +7,8 @@ defmodule DashboardWeb.DashboardView do
 
   def get_products_keyword(), do: @products_keyword
 
+  def get_know_spiders(), do: Crawler.get_spiders() |> Enum.map(fn spider -> to_string(spider) |> String.replace("Elixir.", "") end)
+
   def is_product_title_in_keyword(title, products_keyword) do
     products_keyword
     |> Enum.map(fn keyword -> String.contains?(title, keyword) end)

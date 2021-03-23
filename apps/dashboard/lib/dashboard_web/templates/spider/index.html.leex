@@ -24,7 +24,7 @@
             <%= for {spider_name, response} <- @spiders_stats do %>
             <tr>
                 <% is_running = response != "Spider is not running" %>
-                <td><%= "Crawler.Spider.#{spider_name}" %></td>
+                <td><%= "#{spider_name}" %></td>
                 <td>
                     <%= if is_running do %>
                     <span class="badge bg-success">Running</span>

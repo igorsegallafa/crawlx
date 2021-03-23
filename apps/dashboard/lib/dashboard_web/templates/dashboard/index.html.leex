@@ -1,7 +1,21 @@
+<div class="row">
+    <%= for spiders_group <- Enum.chunk_every(get_know_spiders(), 4) do %>
+        <%= for spider_name <- spiders_group do %>
+        <div class="col">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <p class="card-text"><%= spider_name %></p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    <% end %>
+</div>
+
 <%= for products_keyword <- get_products_keyword() do %>
 <div class="row">
     <div class="col">
-        <h4><%= products_keyword |> Enum.join(", ") %></h4>
+        <h5><%= products_keyword |> Enum.join(", ") %></h5>
         <table id="products" class="table">
             <thead>
             <tr>

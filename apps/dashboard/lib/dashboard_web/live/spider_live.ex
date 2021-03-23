@@ -4,12 +4,6 @@ defmodule DashboardWeb.SpiderLive do
   @interval_update 5000
   @auto_update true
 
-  @known_spiders [
-    "Kabum",
-    "TerabyteShop",
-    "Pichau"
-  ]
-
   def mount(_params, _session, socket) do
     send_update_event(@auto_update)
     {:ok, update(socket)}
@@ -26,13 +20,13 @@ defmodule DashboardWeb.SpiderLive do
   end
 
   def handle_event("run_spider", params, socket) do
-    response = HTTPoison.get!("http://localhost:4001/spiders/Crawler.Spider.#{params["spider_name"]}/schedule")
+    response = HTTPoison.get!("http://localhost:4001/spiders/#{params["spider_name"]}/schedule")
 
     {:noreply, update(socket) |> put_flash(:info, response.body)}
   end
 
   def handle_event("stop_spider", params, socket) do
-    response = HTTPoison.get!("http://localhost:4001/spiders/Crawler.Spider.#{params["spider_name"]}/stop")
+    response = HTTPoison.get!("http://localhost:4001/spiders/#{params["spider_name"]}/stop")
 
     {:noreply, update(socket) |> put_flash(:info, response.body)}
   end
@@ -48,12 +42,13 @@ defmodule DashboardWeb.SpiderLive do
   end
 
   defp get_spiders_stats() do
-    @known_spiders
+    Crawler.get_spiders()
+    |> Enum.map(fn spider -> Kernel.to_string(spider) |> String.replace("Elixir.", "") end)
     |> Enum.map(&format_spider_stats/1)
   end
 
   defp format_spider_stats(spider_name) do
-    response = HTTPoison.get!("http://localhost:4001/spiders/Crawler.Spider.#{spider_name}/scheduled-requests")
+    response = HTTPoison.get!("http://localhost:4001/spiders/#{spider_name}/scheduled-requests")
 
     {spider_name, response.body}
   end
