@@ -1,5 +1,5 @@
 <div class="row">
-    <%= for spiders_group <- Enum.chunk_every(get_spiders_stats(), 4) do %>
+    <%= for spiders_group <- Enum.chunk_every(@spiders_stats, 4) do %>
         <%= for spider_stats <- spiders_group do %>
         <div class="col">
             <div class="card text-white bg-<%= if spider_stats.web_successful, do: "success", else: "danger" %> mb-3">

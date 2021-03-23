@@ -29,8 +29,7 @@ defmodule DashboardWeb.DashboardLive do
     spiders_stats = SpiderStats.get_spiders_stats()
 
     socket
-    |> assign(items: items)
-    |> assign(spiders_stats: spiders_stats)
+    |> assign(items: items, spiders_stats: spiders_stats)
   end
 
   defp get_items_from_cache() do
