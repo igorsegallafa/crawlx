@@ -1,6 +1,8 @@
+<%= for products_keyword <- get_products_keyword() do %>
 <div class="row">
     <div class="col">
-        <table class="table">
+        <h4><%= products_keyword |> Enum.join(", ") %></h4>
+        <table id="products" class="table">
             <thead>
             <tr>
                 <th scope="col">Name</th>
@@ -12,16 +14,19 @@
             <tbody>
             <%= for {spider_name, items_list} <- @items do %>
                 <%= for {product_name, item} <- items_list do %>
-                <tr>
-                    <% out_of_stock? = item["price"] == "Out of Stock" %>
-                    <td><a href="<%= item["url"] %>"><%= product_name %></a></td>
-                    <td><%= spider_name %></td>
-                    <td><%= item["datetime"] %></td>
-                    <td><span class="badge <%= if out_of_stock?, do: "bg-danger", else: "bg-success"%>"><%= item["price"] %></span></td>
-                </tr>
+                    <%= if is_product_title_in_keyword(item["title"], products_keyword) do %>
+                    <tr>
+                        <% out_of_stock? = item["price"] == "Out of Stock" %>
+                        <td><a href="<%= item["url"] %>"><%= product_name %></a></td>
+                        <td><%= spider_name |> String.replace("Elixir.Crawler.Spider.", "") %></td>
+                        <td><%= item["datetime"] |> String.slice(0, 19) %></td>
+                        <td><span class="badge <%= if out_of_stock?, do: "bg-danger", else: "bg-success"%>"><%= item["price"] %></span></td>
+                    </tr>
+                    <% end %>
                 <% end %>
             <% end %>
             </tbody>
         </table>
     </div>
 </div>
+<% end %>

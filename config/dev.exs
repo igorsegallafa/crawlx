@@ -10,6 +10,7 @@ config :dashboard, DashboardWeb.Endpoint,
       "node_modules/webpack/bin/webpack.js",
       "--mode",
       "development",
+      "--watch-stdin",
       cd: Path.expand("../apps/dashboard/assets", __DIR__)
     ]
   ]
@@ -20,7 +21,8 @@ config :dashboard, DashboardWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/dashboard_web/(live|views)/.*(ex)$",
-      ~r"lib/dashboard_web/templates/.*(eex)$"
+      ~r"lib/dashboard_web/templates/.*(eex)$",
+      ~r"assets/css/.*(css)"
     ]
   ]
 
