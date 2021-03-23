@@ -3,7 +3,10 @@ defmodule Crawler.Pipeline.WriteToCache do
   @impl Crawly.Pipeline
   def run(item, state, _opts \\ []) do
     spider_name = to_string(state.spider_name)
-    parsed_item = JSON.decode!(item)
+    parsed_item =
+      item
+      |> JSON.decode!()
+      |> Map.put("datetime", DateTime.utc_now() |> DateTime.to_string())
 
     cache_value = Cachex.get(:crawlx, spider_name)
 

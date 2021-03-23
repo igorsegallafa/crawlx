@@ -5,6 +5,7 @@
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Spider</th>
+                <th scope="col">Date Updated</th>
                 <th scope="col">Status</th>
             </tr>
             </thead>
@@ -15,6 +16,7 @@
                     <% out_of_stock? = item["price"] == "Out of Stock" %>
                     <td><a href="<%= item["url"] %>"><%= product_name %></a></td>
                     <td><%= spider_name %></td>
+                    <td><%= item["datetime"] %></td>
                     <td><span class="badge <%= if out_of_stock?, do: "bg-danger", else: "bg-success"%>"><%= item["price"] %></span></td>
                 </tr>
                 <% end %>
