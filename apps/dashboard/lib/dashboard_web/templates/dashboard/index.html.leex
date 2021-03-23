@@ -1,10 +1,20 @@
 <div class="row">
-    <%= for spiders_group <- Enum.chunk_every(get_know_spiders(), 4) do %>
-        <%= for spider_name <- spiders_group do %>
+    <%= for spiders_group <- Enum.chunk_every(get_spiders_stats(), 4) do %>
+        <%= for spider_stats <- spiders_group do %>
         <div class="col">
-            <div class="card text-white bg-success mb-3">
+            <div class="card text-white bg-<%= if spider_stats.web_successful, do: "success", else: "danger" %> mb-3">
                 <div class="card-body">
-                    <p class="card-text"><%= spider_name %></p>
+                    <p class="fw-bolder"><%= spider_stats.name %></p>
+                    <%= if spider_stats.web_successful do %>
+                        <%= if spider_stats.is_running do %>
+                        <span class="sr-only">Running...</span>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <% else %>
+                        <span class="sr-only">Updated ✔</span>
+                        <% end %>
+                    <% else %>
+                    <span class="sr-only">Site is unavailable</span>
+                    <% end %>
                 </div>
             </div>
         </div>

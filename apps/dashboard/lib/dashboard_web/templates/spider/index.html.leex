@@ -21,22 +21,21 @@
             </tr>
             </thead>
             <tbody>
-            <%= for {spider_name, response} <- @spiders_stats do %>
+            <%= for spider_stats <- @spiders_stats do %>
             <tr>
-                <% is_running = response != "Spider is not running" %>
-                <td><%= "#{spider_name}" %></td>
+                <td><%= "#{spider_stats.name}" %></td>
                 <td>
-                    <%= if is_running do %>
+                    <%= if spider_stats.is_running do %>
                     <span class="badge bg-success">Running</span>
                     <% else %>
                     <span class="badge bg-danger">Not Running</span>
                     <% end %>
                 </td>
                 <td>
-                    <%= if is_running do %>
-                    <button phx-click="stop_spider" phx-value-spider_name="<%= spider_name %>" type="button" class="btn btn-sm btn-outline-danger">Stop</button>
+                    <%= if spider_stats.is_running do %>
+                    <button phx-click="stop_spider" phx-value-spider_name="<%= spider_stats.name %>" type="button" class="btn btn-sm btn-outline-danger">Stop</button>
                     <% else %>
-                    <button phx-click="run_spider" phx-value-spider_name="<%= spider_name %>" type="button" class="btn btn-sm btn-outline-success">Run</button>
+                    <button phx-click="run_spider" phx-value-spider_name="<%= spider_stats.name %>" type="button" class="btn btn-sm btn-outline-success">Run</button>
                     <% end %>
                 </td>
             </tr>

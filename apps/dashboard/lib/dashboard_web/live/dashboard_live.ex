@@ -1,6 +1,8 @@
 defmodule DashboardWeb.DashboardLive do
   use DashboardWeb, :live_view
 
+  alias Dashboard.Helper.SpiderStats
+
   @interval_update 5000
   @auto_update true
 
@@ -24,9 +26,11 @@ defmodule DashboardWeb.DashboardLive do
 
   defp update(socket) do
     items = get_items_from_cache()
+    spiders_stats = SpiderStats.get_spiders_stats()
 
     socket
     |> assign(items: items)
+    |> assign(spiders_stats: spiders_stats)
   end
 
   defp get_items_from_cache() do

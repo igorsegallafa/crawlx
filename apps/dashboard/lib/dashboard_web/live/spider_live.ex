@@ -1,6 +1,8 @@
 defmodule DashboardWeb.SpiderLive do
   use DashboardWeb, :live_view
 
+  alias Dashboard.Helper.SpiderStats
+
   @interval_update 5000
   @auto_update true
 
@@ -35,21 +37,7 @@ defmodule DashboardWeb.SpiderLive do
   defp send_update_event(_), do: nil
 
   defp update(socket) do
-    spiders_stats = get_spiders_stats()
-
     socket
-    |> assign(spiders_stats: spiders_stats)
-  end
-
-  defp get_spiders_stats() do
-    Crawler.get_spiders()
-    |> Enum.map(fn spider -> Kernel.to_string(spider) |> String.replace("Elixir.", "") end)
-    |> Enum.map(&format_spider_stats/1)
-  end
-
-  defp format_spider_stats(spider_name) do
-    response = HTTPoison.get!("http://localhost:4001/spiders/#{spider_name}/scheduled-requests")
-
-    {spider_name, response.body}
+    |> assign(spiders_stats: SpiderStats.get_spiders_stats())
   end
 end
