@@ -59,6 +59,8 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/crontab" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/quantum" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gen_stage" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/telegex" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/typed_struct" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="cachex" level="project" />

@@ -50,6 +50,12 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Telegram
+config :telegex,
+       token: "TELEGRAM_TOKEN",
+       timeout: 1000 * 15,
+       recv_timeout: 1000 * 10
+
 # Use Poison for JSON parsing in Phoenix
 config :phoenix, :json_library, Poison
 

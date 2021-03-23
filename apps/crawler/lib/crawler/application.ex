@@ -1,10 +1,13 @@
 defmodule Crawler.Application do
   use Application
 
+  require Logger
+
   def start(_type, _args) do
     children = [
       {Cachex, name: :crawlx},
       Crawler.Scheduler,
+      Crawler.LoadCacheFromDump
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
