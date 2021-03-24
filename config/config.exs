@@ -25,6 +25,7 @@ config :crawly,
   ],
   pipelines: [
     {Crawly.Pipelines.Validate, fields: [:url, :title, :price]},
+    Crawler.Pipeline.NormalizeParsedItem,
     Crawly.Pipelines.JSONEncoder,
     Crawler.Pipeline.WriteToCache,
   ]

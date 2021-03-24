@@ -36,7 +36,7 @@
             </tr>
             </thead>
             <tbody>
-            <%= for item <- items do %>
+            <%= for item <- items |> Enum.sort_by(fn item -> item["price"] end, :desc) do %>
             <tr>
                 <% out_of_stock? = item["price"] == "Out of Stock" %>
                 <td><a href="<%= item["url"] %>"><%= item["title"] %></a></td>
