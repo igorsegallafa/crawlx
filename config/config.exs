@@ -24,8 +24,7 @@ config :crawly,
    }
   ],
   pipelines: [
-    {Crawly.Pipelines.Validate, fields: [:url, :title]},
-    {Crawly.Pipelines.DuplicatesFilter, item_id: :title},
+    {Crawly.Pipelines.Validate, fields: [:url, :title, :price]},
     Crawly.Pipelines.JSONEncoder,
     Crawler.Pipeline.WriteToCache,
   ]
