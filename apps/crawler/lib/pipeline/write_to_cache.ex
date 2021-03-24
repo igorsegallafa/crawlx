@@ -10,12 +10,15 @@ defmodule Crawler.Pipeline.WriteToCache do
       item
       |> JSON.decode!()
       |> Map.put("datetime", DateTime.utc_now() |> DateTime.to_string())
+      |> Map.put("spider_name", spider_name)
+
+    item_uid = get_hash_from_product_url(parsed_item["url"])
 
     cache_value = Cachex.get(:crawlx, spider_name)
     updated_map =
       case cache_value do
-        {:ok, nil} -> %{parsed_item["title"] => parsed_item}
-        {:ok, value} -> update_and_check_item_state(value, parsed_item)
+        {:ok, nil} -> %{item_uid => parsed_item}
+        {:ok, value} -> update_and_check_item_state(item_uid, value, parsed_item)
       end
 
     # upsert value on cache
@@ -30,9 +33,8 @@ defmodule Crawler.Pipeline.WriteToCache do
     {item, state}
   end
 
-  defp update_and_check_item_state(cache_map, parsed_item) do
-    product_title = parsed_item["title"]
-    product = Map.get(cache_map, product_title)
+  defp update_and_check_item_state(item_uid, cache_map, parsed_item) do
+    product = Map.get(cache_map, item_uid)
 
     # product has changed your state?
     has_state_changed? = product["price"] != parsed_item["price"]
@@ -44,7 +46,10 @@ defmodule Crawler.Pipeline.WriteToCache do
     if has_state_changed?, do:
       TelegramHelper.send_message(alert_message)
 
-    Map.put(cache_map, product_title, parsed_item)
+    Map.put(cache_map, item_uid, parsed_item)
   end
+
+  defp get_hash_from_product_url(url), do:
+    :crypto.hash(:md5, url) |> Base.encode16(case: :lower)
 
 end
