@@ -21,7 +21,7 @@ defmodule Dashboard.MixProject do
   def application do
     [
       mod: {Dashboard.Application, []},
-      extra_applications: [:logger, :runtime_tools, :cachex, :crawler]
+      extra_applications: [:logger, :runtime_tools, :cachex, :crawler, :ecto_sql]
     ]
   end
 

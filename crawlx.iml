@@ -61,6 +61,12 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gen_stage" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/telegex" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/typed_struct" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/db_connection" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/decimal" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/connection" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/myxql" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/ecto" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/ecto_sql" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="cachex" level="project" />
@@ -74,5 +80,16 @@
     <orderEntry type="library" name="benchee" level="project" />
     <orderEntry type="library" name="benchee_html" level="project" />
     <orderEntry type="library" name="ex_doc" level="project" />
+    <orderEntry type="library" name="myxql" level="project" />
+    <orderEntry type="library" name="db_connection" level="project" />
+    <orderEntry type="library" name="decimal" level="project" />
+    <orderEntry type="library" name="jason" level="project" />
+    <orderEntry type="library" name="geo" level="project" />
+    <orderEntry type="library" name="binpp" level="project" />
+    <orderEntry type="library" name="dialyxir" level="project" />
+    <orderEntry type="library" name="connection" level="project" />
+    <orderEntry type="library" name="ecto_sql" level="project" />
+    <orderEntry type="library" name="telemetry" level="project" />
+    <orderEntry type="library" name="benchee_json" level="project" />
   </component>
 </module>

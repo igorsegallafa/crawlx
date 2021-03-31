@@ -7,7 +7,8 @@ defmodule Crawler.Application do
     children = [
       {Cachex, name: :crawlx},
       Crawler.Scheduler,
-      Crawler.LoadCacheFromDump
+      Crawler.LoadCacheFromDump,
+      Crawler.CrawlxRepo,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

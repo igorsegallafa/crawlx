@@ -45,6 +45,17 @@ config :dashboard, DashboardWeb.Endpoint,
   pubsub_server: Dashboard.PubSub,
   live_view: [signing_salt: "9s9ANrvf"]
 
+# Configures MySQL Repo
+config :crawler, Crawler.CrawlxRepo,
+       adapter: Ecto.Adapters.MyXQL,
+       database: "crawlx",
+       username: "root",
+       password: "123456",
+       hostname: "localhost",
+       port: 3306,
+       pool_size: 1,
+       url: nil
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

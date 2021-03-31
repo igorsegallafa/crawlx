@@ -18,7 +18,7 @@ defmodule Crawler.MixProject do
   def application do
     [
       mod: {Crawler.Application, []},
-      extra_applications: [:logger, :cachex]
+      extra_applications: [:logger, :cachex, :ecto_sql]
     ]
   end
 

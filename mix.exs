@@ -12,7 +12,9 @@ defmodule Crawlx.MixProject do
 
   defp deps do
     [
-      {:cachex, "~> 3.3"}
+      {:cachex, "~> 3.3"},
+      {:myxql, "~> 0.4.0"},
+      {:ecto_sql, "~> 3.5"}
     ]
   end
 end

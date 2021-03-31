@@ -60,5 +60,6 @@
     <orderEntry type="library" name="ex_check" level="project" />
     <orderEntry type="library" name="mix_test_watch" level="project" />
     <orderEntry type="library" name="ex_unit_notifier" level="project" />
+    <orderEntry type="library" name="decimal" level="project" />
   </component>
 </module>
