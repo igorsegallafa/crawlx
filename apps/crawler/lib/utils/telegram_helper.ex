@@ -1,9 +1,9 @@
 defmodule Crawler.Utils.TelegramHelper do
-  @chat_group_id -1
-  @enabled true
+  @enabled Application.fetch_env!(:telegex, :enabled)
+  @chat_id Application.fetch_env!(:telegex, :chat_id)
 
   def send_message(message, opts \\ []) do
-    if @enabled, do: Telegex.send_message(@chat_group_id, message, opts),
+    if @enabled, do: Telegex.send_message(@chat_id, message, opts),
     else: nil
   end
 end

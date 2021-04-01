@@ -31,3 +31,10 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 config :phoenix, :plug_init_mode, :runtime
+
+config :telegex,
+  enabled: false,
+  token: "-1",
+  chat_id: 0
+
+import_config "dev.secret.exs"

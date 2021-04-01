@@ -6,4 +6,6 @@ config :dashboard, DashboardWeb.Endpoint,
 
 config :logger, level: :info
 
+config :crawler, Crawler.Scheduler, jobs: [{"*/3 * * * *", {Crawler.Scheduler, :run_spiders, []}}]
+
 import_config "prod.secret.exs"
