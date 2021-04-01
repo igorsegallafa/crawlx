@@ -20,13 +20,4 @@ defmodule DashboardWeb.Router do
     live "/", DashboardLive, :index
     live "/spider", SpiderLive, :index
   end
-
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
-
-    scope "/" do
-      pipe_through :browser
-      live_dashboard "/dashboard", metrics: DashboardWeb.Telemetry
-    end
-  end
 end

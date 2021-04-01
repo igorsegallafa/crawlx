@@ -5,7 +5,6 @@ defmodule DashboardWeb.LayoutView do
     [
       {"Dashboard", "/"},
       {"Spiders", Routes.spider_path(socket, :index)},
-      {"Live Dashboard", Routes.live_dashboard_path(socket, :home)},
     ]
   end
 end
