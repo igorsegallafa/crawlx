@@ -42,16 +42,6 @@ config :telegex,
   timeout: 1000 * 15,
   recv_timeout: 1000 * 10
 
-config :crawler, CrawlxRepo,
-  adapter: Ecto.Adapters.MyXQL,
-  database: "crawlx",
-  username: "root",
-  password: "123456",
-  hostname: "localhost",
-  port: 3306,
-  pool_size: 1,
-  url: nil
-
 config :phoenix, :json_library, Poison
 
 import_config "#{Mix.env()}.exs"
