@@ -21,7 +21,7 @@ defmodule Dashboard.MixProject do
   def application do
     [
       mod: {Dashboard.Application, []},
-      extra_applications: [:logger, :runtime_tools, :cachex, :crawler, :ecto_sql]
+      extra_applications: [:logger, :runtime_tools, :crawler, :ecto_sql, :money]
     ]
   end
 
@@ -41,7 +41,8 @@ defmodule Dashboard.MixProject do
       {:gettext, "~> 0.11"},
       {:poison, "~> 3.1"},
       {:plug_cowboy, "~> 2.0"},
-      {:httpoison, "~> 1.8"}
+      {:httpoison, "~> 1.8"},
+      {:ecto_sql, "~> 3.5"}
     ]
   end
 

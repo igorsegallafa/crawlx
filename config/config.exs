@@ -24,17 +24,22 @@ config :crawly,
    }
   ],
   pipelines: [
-    {Crawly.Pipelines.Validate, fields: [:url, :title, :price]},
-    Crawler.Pipeline.NormalizeParsedItem,
-    Crawly.Pipelines.JSONEncoder,
-    Crawler.Pipeline.WriteToCache,
+    {Crawly.Pipelines.Validate, fields: [:url, :title]},
+    Crawler.Pipeline.NormalizeItem,
+    Crawler.Pipeline.SaveToDatabase,
+    Crawler.Pipeline.SendNotification
   ]
+
+config :money,
+       default_currency: :BRL,
+       separator: ".",
+       delimiter: ","
 
 # Configures the Cron jobs
 config :crawler, Crawler.Scheduler,
   jobs: [
     # Every 3 minutes
-    {"*/3 * * * *",   {Crawler.Scheduler, :run_spiders, []} }
+#    {"*/3 * * * *",   {Crawler.Scheduler, :run_spiders, []} }
   ]
 
 # Configures the endpoint
@@ -46,7 +51,7 @@ config :dashboard, DashboardWeb.Endpoint,
   live_view: [signing_salt: "9s9ANrvf"]
 
 # Configures MySQL Repo
-config :crawler, Crawler.CrawlxRepo,
+config :crawler, CrawlxRepo,
        adapter: Ecto.Adapters.MyXQL,
        database: "crawlx",
        username: "root",

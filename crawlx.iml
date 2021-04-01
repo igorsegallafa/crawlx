@@ -67,6 +67,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/myxql" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/ecto" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/ecto_sql" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/money" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="cachex" level="project" />
@@ -91,5 +92,11 @@
     <orderEntry type="library" name="ecto_sql" level="project" />
     <orderEntry type="library" name="telemetry" level="project" />
     <orderEntry type="library" name="benchee_json" level="project" />
+    <orderEntry type="library" name="money" level="project" />
+    <orderEntry type="library" name="ecto" level="project" />
+    <orderEntry type="library" name="phoenix_html" level="project" />
+    <orderEntry type="library" name="plug" level="project" />
+    <orderEntry type="library" name="mime" level="project" />
+    <orderEntry type="library" name="plug_crypto" level="project" />
   </component>
 </module>

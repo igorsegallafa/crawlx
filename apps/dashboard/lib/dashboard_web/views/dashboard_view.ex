@@ -17,19 +17,18 @@ defmodule DashboardWeb.DashboardView do
 
   def group_products_by_keyword(items) do
     items
-    |> Enum.map(fn {_spider_name, items_list} -> flatten_items_list(items_list) end)
-    |> List.flatten
     |> Enum.group_by(fn item -> find_first_title_match_with_keyword(item) end)
-  end
-
-  defp flatten_items_list(items_list) do
-    items_list
-    |> Enum.map(fn {_uid, parsed_item} -> parsed_item end)
   end
 
   defp find_first_title_match_with_keyword(item) do
     @products_keyword
     |> Enum.filter(fn keyword -> String.contains?(String.upcase(item["title"]), keyword) end)
     |> List.first
+  end
+
+  defp get_price_as_string(price) do
+    price
+    |> Money.parse!()
+    |> Money.to_string()
   end
 end
