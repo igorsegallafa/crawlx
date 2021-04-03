@@ -25,7 +25,6 @@
 <%= for {products_keyword, items} <- group_products_by_keyword(@items) do %>
 <div class="row">
     <div class="col">
-        <% if products_keyword do %>
         <h5><%= products_keyword |> Enum.join(", ") %></h5>
         <table id="products" class="table">
             <thead>
@@ -54,7 +53,6 @@
             <% end %>
             </tbody>
         </table>
-        <% end %>
     </div>
 </div>
 <% end %>
