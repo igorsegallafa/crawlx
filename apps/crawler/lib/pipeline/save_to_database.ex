@@ -9,7 +9,14 @@ defmodule Crawler.Pipeline.SaveToDatabase do
 
   @insert_product_price_query """
     INSERT IGNORE INTO crawlx.products_price_hist (product_id, price, date)
-    VALUES (?, ?, NOW())
+    SELECT ?, ?, NOW()
+    FROM (
+      SELECT IFNULL((
+          SELECT price
+          FROM products_price_hist
+          WHERE product_id = ? ORDER BY id DESC LIMIT 1), NULL) AS price
+    ) last_price
+    WHERE last_price.price IS NULL OR last_price.price != ?;
   """
 
   @impl Crawly.Pipeline
@@ -42,6 +49,8 @@ defmodule Crawler.Pipeline.SaveToDatabase do
 
   defp insert_product_price_hist(product_id, _item = %{price: price}) do
     query_params = [
+      product_id,
+      price,
       product_id,
       price
     ]

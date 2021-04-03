@@ -14,13 +14,13 @@ defmodule Crawler.Pipeline.SendNotification do
     {item, state}
   end
 
-  def get_notification_message(%{title: title, url: url}, _is_product_out_of_stock? = true) do
+  defp get_notification_message(%{title: title, url: url}, _is_product_out_of_stock? = true) do
     "O produto `#{title}` saiu de estoque!\n#{url}"
   end
-  def get_notification_message(%{title: title, url: url, price: price}, _) do
+  defp get_notification_message(%{title: title, url: url, price: price}, _) do
     formatted_price =
       price
-      |> Money.parse()
+      |> Money.parse!()
       |> Money.to_string()
 
     "#{title} está disponível (#{formatted_price})!\n#{url}"
