@@ -48,7 +48,7 @@ create table products_price_hist
     id         int auto_increment
         primary key,
     product_id int           not null,
-    price      decimal(6, 2) not null,
+    price      decimal(10, 2) not null,
     date       datetime      not null,
     constraint products_price_hist_products_id_fk
         foreign key (product_id) references products (id)
