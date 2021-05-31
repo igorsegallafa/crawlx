@@ -1,0 +1,17 @@
+<%= for {spider_name, content} <- @spiders_url do %>
+<div class="row mt-3 mb-3">
+    <h1><%= spider_name %></h1>
+    <%= form_for :spider, Routes.config_path(@socket, :index), [as: :spider, phx_submit: :save], fn _f -> %>
+        <input type="hidden" id="spider_name" name="spider_name" value="<%= spider_name %>">
+        <div class="form-group">
+            <label for="spider_content" class="visually-hidden">Spider Content URLs</label>
+            <textarea name="spider_content" class="form-control" id="spider_content" rows="20"><%= content %></textarea>
+        </div>
+        <div class="form-group">
+            <div class="col mt-3">
+                <button type="submit" class="btn btn-primary mb-3" phx-disable-with="Saving...">Save</button>
+            </div>
+        </div>
+    <% end %>
+</div>
+<% end %>

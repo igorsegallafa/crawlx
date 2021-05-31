@@ -19,5 +19,6 @@ defmodule DashboardWeb.Router do
 
     live "/", DashboardLive, :index
     live "/spider", SpiderLive, :index
+    live "/config", ConfigLive, :index
   end
 end

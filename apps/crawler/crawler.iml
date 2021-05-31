@@ -14,52 +14,53 @@
       <excludeFolder url="file://$MODULE_DIR$/doc" />
       <excludeFolder url="file://$MODULE_DIR$/logs" />
     </content>
+    <orderEntry type="jdk" jdkName="Elixir at C:\Program Files (x86)\Elixir" jdkType="Elixir SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="json" level="project" />
-    <orderEntry type="library" name="crawly" level="project" />
-    <orderEntry type="library" name="floki" level="project" />
-    <orderEntry type="library" name="ex_doc" level="project" />
-    <orderEntry type="library" name="credo" level="project" />
-    <orderEntry type="library" name="dialyzex" level="project" />
-    <orderEntry type="library" name="excoveralls" level="project" />
-    <orderEntry type="library" name="httpoison" level="project" />
-    <orderEntry type="library" name="uuid" level="project" />
-    <orderEntry type="library" name="poison" level="project" />
-    <orderEntry type="library" name="gollum" level="project" />
-    <orderEntry type="library" name="plug_cowboy" level="project" />
-    <orderEntry type="library" name="epipe" level="project" />
-    <orderEntry type="library" name="earmark" level="project" />
-    <orderEntry type="library" name="meck" level="project" />
-    <orderEntry type="library" name="logger_file_backend" level="project" />
-    <orderEntry type="library" name="hackney" level="project" />
-    <orderEntry type="library" name="mimic" level="project" />
-    <orderEntry type="library" name="jason" level="project" />
-    <orderEntry type="library" name="httparrot" level="project" />
-    <orderEntry type="library" name="dialyxir" level="project" />
-    <orderEntry type="library" name="benchfella" level="project" />
-    <orderEntry type="library" name="jiffy" level="project" />
-    <orderEntry type="library" name="exjsx" level="project" />
-    <orderEntry type="library" name="jazz" level="project" />
-    <orderEntry type="library" name="plug" level="project" />
-    <orderEntry type="library" name="cowboy" level="project" />
-    <orderEntry type="library" name="cowboy_telemetry" level="project" />
-    <orderEntry type="library" name="telemetry" level="project" />
-    <orderEntry type="library" name="kadabra" level="project" />
-    <orderEntry type="library" name="x509" level="project" />
-    <orderEntry type="library" name="mime" level="project" />
-    <orderEntry type="library" name="plug_crypto" level="project" />
-    <orderEntry type="library" name="quantum" level="project" />
-    <orderEntry type="library" name="crontab" level="project" />
-    <orderEntry type="library" name="gen_stage" level="project" />
-    <orderEntry type="library" name="tzdata" level="project" />
-    <orderEntry type="library" name="ecto" level="project" />
-    <orderEntry type="library" name="inch_ex" level="project" />
-    <orderEntry type="library" name="telegex" level="project" />
-    <orderEntry type="library" name="exvcr" level="project" />
-    <orderEntry type="library" name="typed_struct" level="project" />
-    <orderEntry type="library" name="ex_check" level="project" />
-    <orderEntry type="library" name="mix_test_watch" level="project" />
-    <orderEntry type="library" name="ex_unit_notifier" level="project" />
-    <orderEntry type="library" name="decimal" level="project" />
+    <orderEntry type="library" exported="" name="json" level="project" />
+    <orderEntry type="library" exported="" name="crawly" level="project" />
+    <orderEntry type="library" exported="" name="dialyzex" level="project" />
+    <orderEntry type="library" exported="" name="ex_doc" level="project" />
+    <orderEntry type="library" exported="" name="credo" level="project" />
+    <orderEntry type="library" exported="" name="floki" level="project" />
+    <orderEntry type="library" exported="" name="excoveralls" level="project" />
+    <orderEntry type="library" exported="" name="httpoison" level="project" />
+    <orderEntry type="library" exported="" name="uuid" level="project" />
+    <orderEntry type="library" exported="" name="poison" level="project" />
+    <orderEntry type="library" exported="" name="gollum" level="project" />
+    <orderEntry type="library" exported="" name="plug_cowboy" level="project" />
+    <orderEntry type="library" exported="" name="epipe" level="project" />
+    <orderEntry type="library" exported="" name="earmark" level="project" />
+    <orderEntry type="library" exported="" name="meck" level="project" />
+    <orderEntry type="library" exported="" name="logger_file_backend" level="project" />
+    <orderEntry type="library" exported="" name="hackney" level="project" />
+    <orderEntry type="library" exported="" name="mimic" level="project" />
+    <orderEntry type="library" exported="" name="jason" level="project" />
+    <orderEntry type="library" exported="" name="httparrot" level="project" />
+    <orderEntry type="library" exported="" name="dialyxir" level="project" />
+    <orderEntry type="library" exported="" name="benchfella" level="project" />
+    <orderEntry type="library" exported="" name="jiffy" level="project" />
+    <orderEntry type="library" exported="" name="exjsx" level="project" />
+    <orderEntry type="library" exported="" name="jazz" level="project" />
+    <orderEntry type="library" exported="" name="plug" level="project" />
+    <orderEntry type="library" exported="" name="cowboy" level="project" />
+    <orderEntry type="library" exported="" name="cowboy_telemetry" level="project" />
+    <orderEntry type="library" exported="" name="telemetry" level="project" />
+    <orderEntry type="library" exported="" name="kadabra" level="project" />
+    <orderEntry type="library" exported="" name="x509" level="project" />
+    <orderEntry type="library" exported="" name="mime" level="project" />
+    <orderEntry type="library" exported="" name="plug_crypto" level="project" />
+    <orderEntry type="library" exported="" name="quantum" level="project" />
+    <orderEntry type="library" exported="" name="crontab" level="project" />
+    <orderEntry type="library" exported="" name="gen_stage" level="project" />
+    <orderEntry type="library" exported="" name="tzdata" level="project" />
+    <orderEntry type="library" exported="" name="ecto" level="project" />
+    <orderEntry type="library" exported="" name="inch_ex" level="project" />
+    <orderEntry type="library" exported="" name="telegex" level="project" />
+    <orderEntry type="library" exported="" name="exvcr" level="project" />
+    <orderEntry type="library" exported="" name="typed_struct" level="project" />
+    <orderEntry type="library" exported="" name="ex_check" level="project" />
+    <orderEntry type="library" exported="" name="mix_test_watch" level="project" />
+    <orderEntry type="library" exported="" name="ex_unit_notifier" level="project" />
+    <orderEntry type="library" exported="" name="decimal" level="project" />
   </component>
 </module>

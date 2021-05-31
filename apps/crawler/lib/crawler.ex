@@ -3,7 +3,6 @@ defmodule Crawler do
 
   @crawler_spiders [
     Crawler.Spider.Pichau,
-    Crawler.Spider.Kabum,
     Crawler.Spider.TerabyteShop
   ]
 

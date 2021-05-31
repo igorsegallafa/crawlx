@@ -5,6 +5,7 @@ defmodule DashboardWeb.DashboardView do
 
   @products_keyword [
     ["RTX 3060TI", "RTX3060 TI", "RTX 3060 TI"],
+    ["GTX 1660", "GTX1660", "GTX 1660 SUPER"],
     ["RTX 3060", "RTX3060"],
     ["RX 6800", "RX6800"],
     ["RX 5700", "RX5700"],
