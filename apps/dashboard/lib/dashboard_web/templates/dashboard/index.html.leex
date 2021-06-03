@@ -23,6 +23,7 @@
 </div>
 
 <%= for {products_keyword, items} <- group_products_by_keyword(@items) do %>
+<%= unless is_nil(products_keyword) do %>
 <div class="row">
     <div class="col">
         <h5><%= products_keyword |> Enum.join(", ") %></h5>
@@ -55,4 +56,5 @@
         </table>
     </div>
 </div>
+<% end %>
 <% end %>
