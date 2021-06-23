@@ -16,7 +16,7 @@ defmodule Crawler.Pipeline.SaveToDatabase do
           FROM products_price_hist
           WHERE product_id = ? ORDER BY id DESC LIMIT 1), NULL) AS price
     ) last_price
-    WHERE last_price.price IS NULL OR last_price.price != ?;
+    WHERE last_price.price != ?;
   """
 
   @impl Crawly.Pipeline

@@ -1,3 +1,18 @@
+<div class="row mt-3 mb-3">
+    <h1>Products Keyword</h1>
+    <%= form_for :products_keyword, Routes.config_path(@socket, :index), [as: :products_keyword, phx_submit: :save_products_keyword], fn _f -> %>
+    <div class="form-group">
+        <label for="content" class="visually-hidden">Products Keyword</label>
+        <textarea name="content" class="form-control" id="content" rows="10"><%= @products_keyword_content %></textarea>
+    </div>
+    <div class="form-group">
+        <div class="col mt-3">
+            <button type="submit" class="btn btn-primary mb-3" phx-disable-with="Saving...">Save</button>
+        </div>
+    </div>
+    <% end %>
+</div>
+
 <%= for {spider_name, content} <- @spiders_url do %>
 <div class="row mt-3 mb-3">
     <h1><%= spider_name %></h1>

@@ -9,6 +9,16 @@ defmodule DashboardWeb.ConfigLive do
     render(DashboardWeb.ConfigView, "index.html", assigns)
   end
 
+  def handle_event("save_products_keyword", _params = %{"content" => content}, socket) do
+    with(
+      :ok <- save_products_keyword(content)
+    ) do
+      {:noreply, update(socket) |> put_flash(:info, "Products keyword saved successfully!")}
+    else
+      {:error, _} -> {:noreply, update(socket) |> put_flash(:error, "An error has occurred when saving products keyword!")}
+    end
+  end
+
   def handle_event("save", _params = %{"spider_content" => content, "spider_name" => spider_name}, socket) do
     with(
       :ok <- save_urls_content_path(spider_name, content)
@@ -22,6 +32,7 @@ defmodule DashboardWeb.ConfigLive do
   defp update(socket) do
     socket
     |> assign(spiders_url: get_spiders_url())
+    |> assign(products_keyword_content: get_products_keyword())
   end
 
   defp get_spiders_url() do
@@ -31,10 +42,22 @@ defmodule DashboardWeb.ConfigLive do
     |> Map.new()
   end
 
+  defp get_products_keyword() do
+    File.cwd!
+    |> Path.join("products_keyword.json")
+    |> File.read!()
+  end
+
   defp get_urls_content_path(spider_name) do
     File.cwd!
     |> Path.join("#{spider_name}.json")
     |> File.read!()
+  end
+
+  defp save_products_keyword(content) do
+    File.cwd!
+    |> Path.join("products_keyword.json")
+    |> File.write(content)
   end
 
   defp save_urls_content_path(spider_name, content) do

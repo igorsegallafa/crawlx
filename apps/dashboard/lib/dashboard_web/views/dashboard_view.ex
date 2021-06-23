@@ -3,17 +3,15 @@ defmodule DashboardWeb.DashboardView do
 
   alias Dashboard.Helper.SpiderStats
 
-  @products_keyword [
-    ["RTX 3060TI", "RTX3060 TI", "RTX 3060 TI"],
-    ["GTX 1660", "GTX1660", "GTX 1660 SUPER"],
-    ["RTX 3060", "RTX3060"],
-    ["RX 6800", "RX6800"],
-    ["RX 5700", "RX5700"],
-    ["RX 5600", "RX5600"],
-    ["RTX 3070", "RTX3070"],
-  ]
+  def get_products_keyword() do
+    {:ok, products_keyword} =
+      File.cwd!
+      |> Path.join("products_keyword.json")
+      |> File.read!()
+      |> Poison.decode()
 
-  def get_products_keyword(), do: @products_keyword
+    products_keyword
+  end
   def get_spiders_stats(), do: SpiderStats.get_spiders_stats()
 
   def group_products_by_keyword(items) do
@@ -22,7 +20,7 @@ defmodule DashboardWeb.DashboardView do
   end
 
   defp find_first_title_match_with_keyword(item) do
-    @products_keyword
+    get_products_keyword()
     |> Enum.filter(fn keyword -> String.contains?(String.upcase(item["title"]), keyword) end)
     |> List.first
   end
