@@ -12,7 +12,7 @@ defmodule Dashboard.Helper.SpiderStats do
       |> String.replace("Elixir.", "")
 
     response_spider = HTTPoison.get!("http://localhost:4001/spiders/#{spider_name}/scheduled-requests")
-    response_url = HTTPoison.get!(spider.base_url())
+    response_url = HTTPoison.get!(spider.get_urls() |> List.first())
 
     %{
       name: spider_name,
