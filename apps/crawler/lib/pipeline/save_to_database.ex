@@ -16,12 +16,13 @@ defmodule Crawler.Pipeline.SaveToDatabase do
           FROM products_price_hist
           WHERE product_id = ? ORDER BY id DESC LIMIT 1), NULL) AS price
     ) last_price
-    WHERE last_price.price != ?;
+    WHERE last_price.price IS NULL OR last_price.price != ?;
   """
 
   @impl Crawly.Pipeline
-  def run(item, state, _opts \\ []) do
-    spider_name = to_string(state.spider_name)
+  def run(item, state, opts \\ [])
+  def run(item, state = %{spider_name: spider_name}, _opts) do
+    spider_name = to_string(spider_name)
     query_result =
       CrawlxRepo.transaction(fn() ->
         item
@@ -34,6 +35,7 @@ defmodule Crawler.Pipeline.SaveToDatabase do
       {:error, _} -> {false, state}
     end
   end
+  def run(_item, state, _opts), do: {false, state}
 
   defp insert_product(_item = %{title: title, url: url}, spider_name) do
     spider_name = spider_name
