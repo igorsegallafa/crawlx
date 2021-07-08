@@ -28,7 +28,7 @@ defmodule Crawler.Pipeline.NormalizeItem do
 
   defp normalize(:title, value), do: String.trim(value)
   defp normalize(:price, _value = nil), do: Decimal.new(0)
-  defp normalize(:price, value) when is_float(value), do: Decimal.from_float(value)
+  defp normalize(:price, value) when is_float(value) or is_integer(value), do: Decimal.new("#{value}")
   defp normalize(:price, value) do
     @scan_product_price_regex
     |> Regex.scan(value)
