@@ -17,6 +17,7 @@ config :crawly,
   ],
   pipelines: [
     {Crawly.Pipelines.Validate, fields: [:url, :title]},
+    {Crawly.Pipelines.DuplicatesFilter, item_id: :url},
     Crawler.Pipeline.NormalizeItem,
     Crawler.Pipeline.SaveToDatabase,
     Crawler.Pipeline.SendNotification
