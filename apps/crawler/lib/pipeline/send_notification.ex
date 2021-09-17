@@ -11,7 +11,7 @@ defmodule Crawler.Pipeline.SendNotification do
     |> get_notification_message(is_product_out_of_stock?)
     |> TelegramHelper.send_message()
 
-    {item, state}
+    {false, state}
   end
 
   defp get_notification_message(%{title: title, url: url}, _is_product_out_of_stock? = true) do
